@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vargas & Asociados | Firma Legal en el Perú</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       VARIABLES Y RESET
+       ========================================== */
+    :root {
+      --bg-dark: #0b131f;
+      --bg-card: #131f30;
+      --primary-gold: #c5a059;
+      --gold-hover: #e5be75;
+      --text-light: #f4f5f7;
+      --text-muted: #94a3b8;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Montserrat', sans-serif;
+      --transition: all 0.3s ease-in-out;
+      --container-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.25rem; /* 20px padding en móviles */
+    }
+
+    /* ==========================================
+       ANIMACIONES DE SCROLL (Reveal)
+       ========================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================
+       NAVEGACIÓN (Mobile First)
+       ========================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 0;
+      background: rgba(11, 19, 31, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+      transition: var(--transition);
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: var(--primary-gold);
+    }
+
+    .menu-toggle {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-light);
+      cursor: pointer;
+      display: block;
+      padding: 0.5rem;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      transition: var(--transition);
+      z-index: 1001;
+    }
+
+    .nav-links.active {
+      right: 0;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      color: var(--text-light);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .nav-links a {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .btn-contact-nav {
+      border: 1px solid var(--primary-gold);
+      color: var(--primary-gold) !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 2px;
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 6rem;
+      padding-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(11,19,31,0.92) 0%, rgba(11,19,31,0.75) 100%),
+                  url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-tagline {
+      color: var(--primary-gold);
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero h1 {
+      /* Tipografía fluida: se escala automáticamente entre 2rem y 3.8rem según el viewport */
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    .hero p {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 650px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary-gold);
+      color: var(--bg-dark);
+      border: 1px solid var(--primary-gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      border-color: var(--gold-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: #fff;
+    }
+
+    /* ==========================================
+       SECCIONES Y COMPONENTES
+       ========================================== */
+    section {
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto clamp(2rem, 5vw, 3.5rem) auto;
+    }
+
+    .section-header .sub-title {
+      color: var(--primary-gold);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-header .divider {
+      width: 50px;
+      height: 2px;
+      background: var(--primary-gold);
+      margin: 0 auto;
+    }
+
+    /* NOSOTROS & ESTADÍSTICAS */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-text h3 {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      margin-bottom: 1rem;
+      color: var(--primary-gold);
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-box {
+      background: var(--bg-card);
+      padding: 1.25rem;
+      border-left: 3px solid var(--primary-gold);
+      border-radius: 2px;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ÁREAS DE PRÁCTICA */
+    .services-grid {
+      display: grid;
+      /* Adaptabilidad sin desbordamientos en móviles pequeños */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(197, 160, 89, 0.4);
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      color: var(--primary-gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* EQUIPO */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .team-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .team-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-info .role {
+      color: var(--primary-gold);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .team-info .description {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* CONTACTO */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      background: var(--bg-card);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border-radius: 2px;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item i {
+      color: var(--primary-gold);
+      font-size: 1.2rem;
+      margin-top: 3px;
+    }
+
+    .info-item h4 {
+      font-size: 0.9rem;
+    }
+
+    .info-item p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(11, 19, 31, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary-gold);
+      background: rgba(11, 19, 31, 0.9);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060b12;
+      padding: 3rem 0 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary-gold);
+      color: var(--bg-dark);
+    }
+
+    /* ==========================================
+       MEDIA QUERIES (Breakpoints Adaptativos)
+       ========================================== */
+
+    /* Tablets en adelante (640px) */
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+        width: auto;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: auto;
+      }
+    }
+
+    /* Pantallas Medianas / Escritorio (1024px) */
+    @media (min-width: 1024px) {
+      .menu-toggle, .close-menu {
+        display: none;
+      }
+
+      .nav-links {
+        position: static;
+        height: auto;
+        width: auto;
+        background: transparent;
+        flex-direction: row;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 3.5rem;
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="header">
+    <div class="container header-nav">
+      <a href="#" class="logo">VARGAS <span>&</span> ASOCIADOS</a>
+      
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <button class="close-menu" id="close-menu" aria-label="Cerrar Menú">&times;</button>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">La Firma</a></li>
+        <li><a href="#practicas">Áreas de Práctica</a></li>
+        <li><a href="#equipo">Socios</a></li>
+        <li><a href="#contacto" class="btn-contact-nav">Consulta Legal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content reveal">
+        <span class="hero-tagline">Firma Legal Líder en el Perú</span>
+        <h1>Excelencia, Rigor Legal y Compromiso Inquebrantable</h1>
+        <p>Defendemos y protegemos los intereses corporativos y patrimoniales de nuestros clientes con los más altos estándares de seriedad y ética estratégica.</p>
+        <div class="hero-buttons">
+          <a href="#contacto" class="btn-primary">Agendar una Consulta</a>
+          <a href="#practicas" class="btn-secondary">Nuestras Áreas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h3>Más de 25 años garantizando seguridad jurídica</h3>
+          <p>En **Vargas & Asociados**, asesoramos a empresas e individuos en los litigios y transacciones más complejas del país. Nuestra cultura corporativa prioriza el análisis riguroso y la confidencialidad.</p>
+          <p>Entendemos la dinámica regulatoria e institucional peruana, ofreciendo un respaldo legal estratégico adaptado al entorno local e internacional.</p>
+        </div>
+        <div class="stats-container reveal">
+          <div class="stat-box">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Años de Trayectoria</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Casos Favorables</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">+500</div>
+            <div class="stat-label">Clientes Corporativos</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Confidencialidad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE PRÁCTICA -->
+  <section id="practicas" style="background: rgba(0, 0, 0, 0.2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="sub-title">Especialidades</span>
+        <h2>Áreas de Práctica Legal</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <i class="fa-solid fa-building-columns service-icon"></i>
+          <h3>Derecho Corporativo & M&A</h3>
+          <p>Estructuración de negocios, fusiones, adquisiciones y cumplimiento corporativo para empresas que operan en el Perú.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-gavel service-icon"></i>
+          <h3>Litigios & Arbitraje</h3>
+          <p>Representación de alto nivel ante Cortes Nacionales, Tribunal Constitucional y Tribunales Arbitrales (CCL, AMCHAM).</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-file-invoice-dollar service-icon"></i>
+          <h3>Derecho Tributario</h3>
+          <p>Planeamiento fiscal estratégico, auditorías ante la SUNAT y defensa tributaria contenciosa.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-briefcase service-icon"></i>
+          <h3>Derecho Laboral</h3>
+          <p>Asesoría en contratación, regímenes especiales, negociación colectiva y prevención de riesgos laborales (SUNAFIL).</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-city service-icon"></i>
+          <h3>Derecho Inmobiliario</h3>
+          <p>Saneamiento legal de predios, proyectos de construcción, concesiones e inversiones inmobiliarias a nivel nacional.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-shield-halved service-icon"></i>
+          <h3>Compliance & Penal Económico</h3>
+          <p>Implementación de modelos de prevención de delitos corporativos y defensa jurídica en delitos tributarios y financieros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIOS / EQUIPO -->
+  <section id="equipo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="sub-title">Liderazgo</span>
+        <h2>Nuestros Socios Principales</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Dr. Alejandro Vargas" class="team-img" loading="lazy">
+          <div class="team-info">
+            <h3>Dr. Alejandro Vargas M.</h3>
+            <p class="role">Socio Director - Corporativo</p>
+            <p class="description">Ex-asesor en el Poder Judicial. Especialista en reestructuraciones societarias e inversión extranjera.</p>
+          </div>
+        </div>
+
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Dra. Beatriz Morales" class="team-img" loading="lazy">
+          <div class="team-info">
+            <h3>Dra. Beatriz Morales C.</h3>
+            <p class="role">Socia - Litigios & Arbitraje</p>
+            <p class="description">Árbitro registrada en la Cámara de Comercio de Lima. Magíster por la Pontificia Universidad Católica del Perú.</p>
+          </div>
+        </div>
+
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="Dr. Carlos Benítez" class="team-img" loading="lazy">
+          <div class="team-info">
+            <h3>Dr. Carlos Benítez R.</h3>
+            <p class="role">Socio - Derecho Tributario</p>
+            <p class="description">Ex-consultor de SUNAT. Asesor de grandes corporaciones en fiscalización y planeamiento tributario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-container reveal">
+        <div class="contact-info">
+          <h3>Contacto Confidencial</h3>
+          <p>Programe una reunión privada con nuestros especialistas. Garantizamos total reserva desde el primer contacto.</p>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h4>Oficina Principal</h4>
+              <p>Av. Víctor Andrés Belaúnde 147, San Isidro, Lima - Perú</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h4>Teléfonos</h4>
+              <p>+51 (1) 421 9000 | +51 987 654 321</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <h4>Correo Electrónico</h4>
+              <p>contacto@vargasasociados.pe</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias. Un asesor legal se pondrá en contacto a la brevedad.');">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre Completo o Empresa *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Correo Electrónico Corporativo *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Teléfono de Contacto *" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="4" placeholder="Describa brevemente la materia o asunto a tratar..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="cursor: pointer;">Solicitar Evaluación Legal</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">VARGAS <span>&</span> ASOCIADOS</div>
+        <p class="footer-copy">&copy; 2026 Vargas & Asociados Abogados S.C. Todos los derechos reservados. Lima, Perú.</p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // IntersectionObserver para animaciones fluídas
+    const observerOptions = {
+      root: null,
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Menú Móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    const toggleNav = () => navLinks.classList.toggle('active');
+
+    menuToggle.addEventListener('click', toggleNav);
+    closeMenu.addEventListener('click', toggleNav);
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
