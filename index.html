@@ -96,7 +96,7 @@
       width: 100%;
       z-index: 1000;
       padding: 1rem 0;
-      background: #275dfe;
+      background: #010101;
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(197, 160, 89, 0.15);
       transition: var(--transition);
@@ -167,6 +167,14 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 500;
+      color: var(--primary-gold);
+      transition: var(--transition);
+    }
+
+      .nav-links a:hover {
+     
+      transition: var(--transition);
+      color: #fdbc42;
     }
 
     .btn-contact-nav {
@@ -174,6 +182,15 @@
       color: var(--primary-gold) !important;
       padding: 0.6rem 1.5rem;
       border-radius: 2px;
+      transition: var(--transition);
+    }
+
+     .btn-contact-nav:hover {
+      border: 1px solid #fdbc42;
+      color: #fdbc42 !important;
+      padding: 0.6rem 1.5rem;
+      transition: var(--transition);
+      border-radius: 2.2px;
     }
 
     /* ==========================================
@@ -424,7 +441,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 2.5rem;
-      background: var(--bg-card);
+      background: #000000ce;
       padding: clamp(1.5rem, 4vw, 3rem);
       border-radius: 2px;
       border: 1px solid rgba(197, 160, 89, 0.2);
@@ -489,7 +506,7 @@
 
     /* FOOTER */
     footer {
-      background: #060b12;
+      background: #010101;
       padding: 3rem 0 1.5rem 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       text-align: center;
@@ -588,7 +605,7 @@
   <!-- NAVEGACIÓN -->
   <header class="header">
     <div class="container header-nav">
-      <a href="#" class="logo">ZEGARRA <span>&</span> ASOCIADOS</a>
+      <img src="/img/logo_abogados.jpg" href="#" class="logo"></img>
       
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
         <i class="fa-solid fa-bars"></i>
@@ -596,8 +613,7 @@
 
       <ul class="nav-links" id="nav-links">
         <button class="close-menu" id="close-menu" aria-label="Cerrar Menú">&times;</button>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">La Firma</a></li>
+        <li><a href="#inicio">Inicio</a></li>        
         <li><a href="#practicas">Áreas de Práctica</a></li>
         <li><a href="#equipo">Socios</a></li>
         <li><a href="#contacto" class="btn-contact-nav">Consulta Legal</a></li>
@@ -609,18 +625,18 @@
   <section class="hero" id="inicio">
     <div class="container">
       <div class="hero-content reveal">
-        <span class="hero-tagline">Firma Legal Líder en el Perú</span>
+        <span class="hero-tagline">Firma Legal Líder</span>
         <h1>Excelencia, Rigor Legal y Compromiso Inquebrantable</h1>
         <p>Defendemos y protegemos los intereses corporativos y patrimoniales de nuestros clientes con los más altos estándares de seriedad y ética estratégica.</p>
         <div class="hero-buttons">
-          <a href="#contacto" class="btn-primary">Agendar una Consulta</a>
-          <a href="#practicas" class="btn-secondary">Nuestras Áreas</a>
+          <a href="#contacto" class="btn-primary">Agendar una Consulta por WhatsApp</a>
+          <a href="#practicas" class="btn-secondary">Llamar</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NOSOTROS -->
+  <!-- NOSOTROS 
   <section id="nosotros">
     <div class="container">
       <div class="about-grid">
@@ -649,13 +665,13 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
   <!-- ÁREAS DE PRÁCTICA -->
   <section id="practicas" style="background: rgba(0, 0, 0, 0.2);">
     <div class="container">
       <div class="section-header reveal">
-        <span class="sub-title">Especialidades</span>
+        
         <h2>Áreas de Práctica Legal</h2>
         <div class="divider"></div>
       </div>
@@ -663,13 +679,13 @@
       <div class="services-grid">
         <div class="service-card reveal">
           <i class="fa-solid fa-building-columns service-icon"></i>
-          <h3>Derecho Corporativo & M&A</h3>
+          <h3>Derecho Penal</h3>
           <p>Estructuración de negocios, fusiones, adquisiciones y cumplimiento corporativo para empresas que operan en el Perú.</p>
         </div>
 
         <div class="service-card reveal">
           <i class="fa-solid fa-gavel service-icon"></i>
-          <h3>Litigios & Arbitraje</h3>
+          <h3>Derecho Civil</h3>
           <p>Representación de alto nivel ante Cortes Nacionales, Tribunal Constitucional y Tribunales Arbitrales (CCL, AMCHAM).</p>
         </div>
 
@@ -704,7 +720,7 @@
   <section id="equipo">
     <div class="container">
       <div class="section-header reveal">
-        <span class="sub-title">Liderazgo</span>
+        
         <h2>Nuestros Socios Principales</h2>
         <div class="divider"></div>
       </div>
@@ -715,7 +731,6 @@
           <div class="team-info">
             <h3>Dr. York Zegarra Ricalde</h3>
             <p class="role">Socio Director - Corporativo</p>
-            <p class="description">Ex-asesor en el Poder Judicial. Especialista en reestructuraciones societarias e inversión extranjera.</p>
           </div>
         </div>
 
@@ -724,7 +739,6 @@
           <div class="team-info">
             <h3>Dra. Beatriz Morales C.</h3>
             <p class="role">Socia - Litigios & Arbitraje</p>
-            <p class="description">Árbitro registrada en la Cámara de Comercio de Lima. Magíster por la Pontificia Universidad Católica del Perú.</p>
           </div>
         </div>
 
@@ -733,7 +747,6 @@
           <div class="team-info">
             <h3>Dr. Carlos Benítez R.</h3>
             <p class="role">Socio - Derecho Tributario</p>
-            <p class="description">Ex-consultor de SUNAT. Asesor de grandes corporaciones en fiscalización y planeamiento tributario.</p>
           </div>
         </div>
       </div>
@@ -745,14 +758,14 @@
     <div class="container">
       <div class="contact-container reveal">
         <div class="contact-info">
-          <h3>Contacto Confidencial</h3>
+          <h3>Contacto</h3>
           <p>Programe una reunión privada con nuestros especialistas. Garantizamos total reserva desde el primer contacto.</p>
           
           <div class="info-item">
             <i class="fa-solid fa-location-dot"></i>
             <div>
               <h4>Oficina Principal</h4>
-              <p>Av. Víctor Andrés Belaúnde 147, Wanchaq, Cusco - Perú</p>
+              <p>Av. Infancia 556 - A - 2do nivel, Wanchaq, Cusco - Perú</p>
             </div>
           </div>
 
@@ -760,7 +773,7 @@
             <i class="fa-solid fa-phone"></i>
             <div>
               <h4>Teléfonos</h4>
-              <p>+51 (1) 421 9000 | +51 987 654 321</p>
+              <p>+51 914 293 133 | +51 987 654 321</p>
             </div>
           </div>
 
@@ -768,7 +781,7 @@
             <i class="fa-solid fa-envelope"></i>
             <div>
               <h4>Correo Electrónico</h4>
-              <p>contacto@zegarraysociados.pe</p>
+              <p><a type="tel" href=""> zegarrayabogados@gmail.com </a> </p>
             </div>
           </div>
         </div>
@@ -779,10 +792,7 @@
           </div>
           <div class="form-group">
             <input type="email" placeholder="Correo Electrónico Corporativo *" required>
-          </div>
-          <div class="form-group">
-            <input type="tel" placeholder="Teléfono de Contacto *" required>
-          </div>
+          </div>      
           <div class="form-group">
             <textarea rows="4" placeholder="Describa brevemente la materia o asunto a tratar..." required></textarea>
           </div>
@@ -796,12 +806,15 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="logo">ZEGARRA <span>&</span> ASOCIADOS</div>
-        <p class="footer-copy">&copy; 2026 Zegarra & Asociados Abogados S.C. Todos los derechos reservados. Cusco, Perú.</p>
+        <img src="img/isotipo_abogados.png" class="logo"></img>
+        
         <div class="social-links">
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
+      </div>
+      <div class=" col-12 text-center">
+        <p class="footer-copy">&copy; 2026 Zegarra & Asociados Abogados S.C. Todos los derechos reservados. Cusco, Perú.</p>
       </div>
     </div>
   </footer>
