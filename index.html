@@ -405,6 +405,13 @@
       border-radius: 2px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 5px 5px 8px #111111,
+             -5px -5px 8px #1b1b1b;
+      transition: 0.4s;
+    }
+
+    .team-card:hover{
+       translate: 0 -10px;
     }
 
     .team-img {
@@ -690,7 +697,7 @@
         </div>
 
         <div class="service-card reveal">
-          <i class="fa-solid fa-file-invoice-dollar service-icon"></i>
+          <i class="fa-solid fa-book service-icon"></i>
           <h3>Derecho Constitucional</h3>
           <p>Planeamiento fiscal estratégico, auditorías ante la SUNAT y defensa tributaria contenciosa.</p>
         </div>
@@ -703,8 +710,14 @@
 
         
         <div class="service-card reveal">
-          <i class="fa-solid fa-shield-halved service-icon"></i>
+          <i class="fa-solid fa-building-shield service-icon"></i>
           <h3>Derecho Administrativo</h3>
+          <p>Implementación de modelos de prevención de delitos corporativos y defensa jurídica en delitos tributarios y financieros.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <i class="fa-solid fa-user-shield service-icon"></i>
+          <h3>Nuestros Valores Nos Caracterizan</h3>
           <p>Implementación de modelos de prevención de delitos corporativos y defensa jurídica en delitos tributarios y financieros.</p>
         </div>
       </div>
@@ -722,7 +735,7 @@
 
       <div class="team-grid">
         <div class="team-card reveal">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Dr. Alejandro Vargas" class="team-img" loading="lazy">
+          <img src="/img/CEO_Zegarra_Abg.jfif" alt="Dr. York Zegarra Ricalde" class="team-img" loading="lazy">
           <div class="team-info">
             <h3>Dr. York Zegarra Ricalde</h3>
             <p class="role">Socio Director - Corporativo</p>
@@ -737,13 +750,7 @@
           </div>
         </div>
 
-        <div class="team-card reveal">
-          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="Dr. Carlos Benítez" class="team-img" loading="lazy">
-          <div class="team-info">
-            <h3>Dr. Carlos Benítez R.</h3>
-            <p class="role">Socio - Derecho Tributario</p>
-          </div>
-        </div>
+      
       </div>
     </div>
   </section>
@@ -768,7 +775,7 @@
             <i class="fa-solid fa-phone"></i>
             <div>
               <h4>Teléfonos</h4>
-              <p>+51 914 293 133 | +51 987 654 321</p>
+              <p> <a target="_blank" href="tel:+51 914 293 133"> +51 914 293 133 </a>| +51 987 654 321</p>
             </div>
           </div>
 
@@ -776,22 +783,20 @@
             <i class="fa-solid fa-envelope"></i>
             <div>
               <h4>Correo Electrónico</h4>
-              <p><a type="tel" href=""> zegarrayabogados@gmail.com </a> </p>
+              <p><a type="email" href="mailto:zegarrayabogados@gmail.com"> zegarrayabogados@gmail.com </a> </p>
             </div>
           </div>
         </div>
 
         <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias. Un asesor legal se pondrá en contacto a la brevedad.');">
           <div class="form-group">
-            <input type="text" placeholder="Nombre Completo o Empresa *" required>
+            <input type="text" placeholder="Nombre Completo o Empresa *" id="nombreInput" required>
           </div>
+              
           <div class="form-group">
-            <input type="email" placeholder="Correo Electrónico Corporativo *" required>
-          </div>      
-          <div class="form-group">
-            <textarea rows="4" placeholder="Describa brevemente la materia o asunto a tratar..." required></textarea>
+            <textarea rows="4" placeholder="Describa brevemente la materia o asunto a tratar..." id="mensajeInput" required></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="cursor: pointer;">Solicitar Evaluación Legal</button>
+          <button onclick="enviarWhatsApp()" class="btn-primary" id="btn-whats" style="cursor: pointer;">Solicitar Evaluación Legal <i class="fa-brands fa-whatsapp fa-xl" style="color: rgb(0, 0, 0);"></i></button>
         </form>
       </div>
     </div>
@@ -810,7 +815,7 @@
         </div>
       </div>
       <div class=" col-12 text-center">
-        <p class="footer-copy">&copy; 2026 Zegarra & Asociados Abogados S.C. Todos los derechos reservados. Cusco, Perú.</p>
+        <p class="footer-copy">&copy; 2026 Zegarra & Abogados. Todos los derechos reservados. Cusco, Perú.</p>
       </div>
     </div>
   </footer>
@@ -846,6 +851,31 @@
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('active'));
     });
+
+    
+        function enviarWhatsApp() {
+            // 1. Obtener el valor del input y codificarlo para URL
+            const texto = document.getElementById('mensajeInput').value;
+            const textoCodificado = encodeURIComponent(texto);
+            let nombre = document.getElementById('nombreInput').value;
+            const nombreCodificado = encodeURIComponent(nombre);
+            // 2. Definir el número de teléfono (con código de país, sin símbolos)
+            const numeroTelefono = '51914293133'; // Ejemplo con Perú (51)
+           
+            if (!texto || !nombre) {
+                alert('Por favor, complete todos los campos antes de enviar.');
+                return;
+            }
+
+            // 3. Crear la URL de WhatsApp
+            const url = `https://wa.me/${numeroTelefono}?text=${textoCodificado}`+`.%20%0AAtentamente:%20${nombreCodificado}`;
+            
+            // 4. Redirigir a WhatsApp
+            window.open(url, '_blank');
+            document.getElementById('btn-whats').disabled = true;
+        }
+    
   </script>
+
 </body>
 </html>
